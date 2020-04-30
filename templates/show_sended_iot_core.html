@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        setTimeout(function(){
+            window.location.reload(1);
+        }, 2000);
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <title>Index</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="row justify-content-md-center">
+
+            <div class="col-lg-auto" style="margin-top: 5%;">
+                <h1 style="font-family: Ubuntu">Glicose Device: {{ device_id }} </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md" style="margin-top: 10%">
+                <img width="60%" src="{{ url_for('static', filename ='glicose.jpg') }}">
+            </div>
+            <div class="col-lg" style="margin-top: 3%">
+                <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Device</th>
+                    <th scope="col">Glicose</th>
+                    <th scope="col">Data Envio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in already_sended %}
+                    <tr>
+                    <th scope="row">{{ item['user_id'] }}</th>
+                    <th>{{ item['glicose'] }}</th>
+                    <th>{{ item['timestamp'] }}</th>
+                    </tr>
+                    {% endfor %}
+                 </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md" style="margin-top: 10%">
+                <h4 style="font-family: Ubuntu">Quantidade de items enviados: {{ quantidade_enviada }} </h4>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
